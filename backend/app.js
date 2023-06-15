@@ -8,11 +8,11 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var db = new sqlite3.Database(DBPATH);
-app.use(express.static('../frontend'));
+app.use(express.static('./frontend'));
 
 const path = require('path');
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "frontend", "index.html"));
+    res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
 app.get('/get',(req, res) =>{
